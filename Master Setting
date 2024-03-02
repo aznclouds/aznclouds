@@ -1,0 +1,29 @@
+// A main function that tests the linked list functions
+int main() {
+  struct node *head = NULL; // Create an empty linked list
+  add_node(&head, 10); // Add a node with data 10 to the front
+  add_node(&head, 20); // Add a node with data 20 to the front
+  add_node(&head, 30); // Add a node with data 30 to the front
+  printf("The linked list is: "); // Print the linked list
+  struct node *current = head; // Start from the head node
+  while (current != NULL) { // Loop until the end of the list
+    printf("%d ", current->data); // Print the data of the current node
+    current = current->next; // Move to the next node
+  }
+  printf("\n");
+  struct node *found = find_node(head, 20); // Find a node with data 20
+  if (found != NULL) { // If the node is found
+    printf("The node with data 20 is at address %p\n", found); // Print the address of the node
+  } else { // If the node is not found
+    printf("The node with data 20 is not found\n");
+  }
+  delete_node(&head, 20); // Delete a node with data 20
+  printf("The linked list after deleting 20 is: "); // Print the linked list after deletion
+  current = head; // Start from the head node
+  while (current != NULL) { // Loop until the end of the list
+    printf("%d ", current->data); // Print the data of the current node
+    current = current->next; // Move to the next node
+  }
+  printf("\n");
+  return 0; // Exit the program
+}
